@@ -26,7 +26,10 @@
 $tik_token = $tik_tok_access;
 $tik_open_tk = $tik_open;
 $url = 'https://open-api.tiktok.com/video/list/?open_id='.$tik_open_tk.'&access_token='.$tik_token.'&cursor=%d&max_count=%d';
-$json = file_get_contents($url);
+$json = @file_get_contents($url);
+if($json === FALSE) {
+    // console log
+} else {
 $jo = json_decode($json, true);
 
 foreach ($jo["data"]["video_list"] as $area) {
@@ -57,6 +60,7 @@ foreach ($jo["data"]["video_list"] as $area) {
       
     </div>
   </div>';
+}
 }
 
 ?>
