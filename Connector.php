@@ -147,6 +147,8 @@ class Connector {
 				$this->setToken($json->data->access_token);
 				$this->setOpenID($json->data->open_id);
                 
+		// Only modifications to your file!
+				
                 $tik_token = new TiktokToken();
                 $tik_token->user_id = Auth::user()->id;
                 $tik_token->token = $json->data->access_token;
